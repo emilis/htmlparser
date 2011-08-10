@@ -3,8 +3,6 @@
     "description": "An HTML parser",
     "keywords": ["html", "parser", "dom"],
     "author": "George Moschovitis (http://www.gmosx.com/)",
-    "contributors": [],
-    "lib": ["lib"],
-    "jars": ["engines/rhino/jars/htmlparser-1.2.1.jar"],
-    "lean": ["lib", "engines"] 
+    "contributors": ["Emilis Dambauskas (http://emilis.github.com/)"],
+    "jars": ["jars/htmlparser-1.2.1.jar"],
 }
