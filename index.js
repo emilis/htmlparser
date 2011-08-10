@@ -1,5 +1,8 @@
-var JInputSource = Packages.org.xml.sax.InputSource,
-    JStringReader = Packages.java.io.StringReader,
+
+addToClasspath(module.resolve("jars/htmlparser-1.2.1.jar"));
+
+var JInputSource = org.xml.sax.InputSource,
+    JStringReader = java.io.StringReader,
     JHtmlDocumentBuilder = Packages.nu.validator.htmlparser.dom.HtmlDocumentBuilder;
 
 var jparser = new JHtmlDocumentBuilder();
@@ -69,7 +72,7 @@ HTMLNode.prototype.toString = function() {
 
 var JDom2Sax = Packages.nu.validator.htmlparser.dom.Dom2Sax,
     JHtmlSerializer = Packages.nu.validator.htmlparser.sax.HtmlSerializer,
-    JStringWriter = Packages.java.io.StringWriter;
+    JStringWriter = java.io.StringWriter;
 
 HTMLNode.prototype.toHTML = function() {
     var w = new JStringWriter(),
