@@ -93,7 +93,7 @@ var HTMLDocument = function(jdocument) {
 extend(HTMLDocument, HTMLNode);
 
 HTMLDocument.prototype.createElement = function(tagName) {
-    return new HTMLElement(this._raw.createElement(tagName));
+    return new HTMLElement(this._raw.createElementNS("http://www.w3.org/1999/xhtml", tagName));
 }
 
 HTMLDocument.prototype.createComment = function(data) {
