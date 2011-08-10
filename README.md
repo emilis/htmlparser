@@ -1,34 +1,32 @@
-HTML Parser
-===========
+#HTML Parser
 
 The  HTML Parser is an implementation of the HTML5 parsing algorithm packaged for [CommonJS](http://www.commonjs.org). It is based on the excellent [Validator.nu HTML parser](http://about.validator.nu/htmlparser/).
 
 The parser is compatible with [Sizzle](http://sizzlejs.com/) which is included in the distribution for convenience.
 
-This is part of the [Nitro](http://www.nitrojs.org/) ecosystem of Web Application development tools.
 
+##Usage
 
-Usage
------
+```javascript
+var HTMLParser = require("htmlparser").HTMLParser,
+    sizzle = require("htmlparser/sizzle").sizzle;
 
-    var HTMLParser = require("htmlparser").HTMLParser,
-        sizzle = require("sizzle").sizzle;
+var html = '<html><p id="header"><b>nice</b></p><div id="test" class="big">hello</div><div>second</div></html>',
+    parser = new HTMLParser(),
+    document = parser.parse(html),
+    $ = sizzle(document);
 
-    var html = '<html><p id="header"><b>nice</b></p><div id="test" class="big">hello</div><div>second</div></html>',
-        parser = new HTMLParser(),
-        document = parser.parse(html),
-        $ = sizzle(document);
+$("div").forEach(function(el) {
+    print(el.innerHTML);
+});
 
-    $("div").forEach(function(el) {
-        print(el.innerHTML);
-    });
+print(document.toHTML());
+print(document);
+```
 
-    print(document.toHTML());
-    print(document);
+## About
 
-
-Credits
--------
+###Credits
 
 * George Moschovitis <george.moschovitis@gmail.com>
 * Bryan Berry <bryan@olenepal.org>
@@ -40,8 +38,7 @@ Java HTML Parser
 * Portions of comments Copyright 2004-2007 Apple Computer, Inc., Mozilla Foundation, and Opera Software ASA.
 
 
-License
--------
+###License
 
 Copyright (c) 2009-2010 George Moschovitis, [http://www.gmosx.com](http://www.gmosx.com)
 
