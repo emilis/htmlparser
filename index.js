@@ -163,7 +163,11 @@ Object.defineProperty(HTMLElement.prototype, "firstChild", {
 });
 
 HTMLElement.prototype.getAttribute = function(name) {
-    return String(this._raw.getAttribute(name));
+    if (this._raw.getAttribute) {
+        return String(this._raw.getAttribute(name));
+    } else {
+        return "";
+    }
 }
 
 HTMLElement.prototype.getAttributeNode = function(name) {
