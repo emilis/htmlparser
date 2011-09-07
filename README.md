@@ -17,7 +17,7 @@ var html = '<html><p id="header"><b>nice</b></p><div id="test" class="big">hello
     $ = sizzle(document);
 
 $("div").forEach(function(el) {
-    print(el.innerHTML);
+    print(el.textContent);
 });
 
 print(document.toHTML());
