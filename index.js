@@ -86,6 +86,10 @@ Object.defineProperty(HTMLNode.prototype, "nodeValue", {
     }
 });
 
+HTMLNode.prototype.remove = function() {
+    return this.parentNode.removeChild(this);
+};
+
 HTMLNode.prototype.toString = function() {
     return this.nodeName;
 }        
@@ -201,6 +205,10 @@ HTMLElement.prototype.getElementsByTagName = function(tagname) {
 
 HTMLElement.prototype.hasAttribute = function(name) {
     return this._raw.hasAttribute(name);
+}
+
+HTMLElement.prototype.removeAttribute = function(name) {
+    return this._raw.removeAttribute(name);
 }
 
 Object.defineProperty(HTMLElement.prototype, "href", {
