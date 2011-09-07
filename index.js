@@ -86,6 +86,16 @@ Object.defineProperty(HTMLNode.prototype, "nodeValue", {
     }
 });
 
+Object.defineProperty(HTMLNode.prototype, "textContent", {
+    get: function() {
+        return String(this._raw.getTextContent());
+    },
+    set: function(content) {
+        return String(this._raw.setTextContent(content));
+    }    
+});
+
+
 HTMLNode.prototype.remove = function() {
     return this.parentNode.removeChild(this);
 };
@@ -217,15 +227,6 @@ Object.defineProperty(HTMLElement.prototype, "href", {
     }
 });
 
-Object.defineProperty(HTMLElement.prototype, "innerHTML", {
-    get: function() {
-        return String(this._raw.getTextContent());
-    },
-    set: function(content) {
-        return String(this._raw.setTextContent(content));
-    }    
-});
-
 HTMLElement.prototype.insertBefore = function(newChild, refChild) {
     return new HTMLElement(this._raw.insertBefore(newChild._raw, refChild._raw));
 }
@@ -271,12 +272,6 @@ HTMLElement.prototype.removeChild = function(oldChild) {
 Object.defineProperty(HTMLElement.prototype, "selected", {
     get: function() {
         return this.hasAttribute("selected");
-    }
-});
-
-Object.defineProperty(HTMLElement.prototype, "textContent", {
-    get: function() {
-        return String(this._raw.getTextContent());
     }
 });
 
